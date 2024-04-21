@@ -12,7 +12,7 @@ contract ComplaintContract {
         string Reason;
         uint currentTime; 
         bytes EventTime;
-        bool ForOwn; // Added field to specify if the complaint is for own or society
+        bool ForOwn; 
     }
     
     event ComplaintFiled(
@@ -27,8 +27,8 @@ contract ComplaintContract {
         bool ForOwn
     );
 
-    mapping(bytes32 => Complaint) public complaints; // Mapping to track complaints
-    mapping(address => bytes32[]) public copComplaints; // Mapping to track complaints for each cop
+    mapping(bytes32 => Complaint) public complaints; 
+    mapping(address => bytes32[]) public copComplaints; 
 
     event ComplaintVerified(bytes32 indexed complaintID, bool isValid);
 
@@ -41,7 +41,7 @@ contract ComplaintContract {
     
     mapping(address => Cop) public cops;
     
-    mapping(bytes32 => bool) public verifiedComplaints; // Mapping to track verified complaints
+    mapping(bytes32 => bool) public verifiedComplaints; 
     
     modifier onlyAssignedCop() {
         require(cops[msg.sender].assignedToCase, "Only cops assigned to the case can verify complaints");
@@ -56,11 +56,11 @@ contract ComplaintContract {
         bytes memory _Place,
         string memory _Reason,
         bytes memory _EventTime,
-        bool _ForOwn // Added parameter to specify if the complaint is for own or society
+        bool _ForOwn 
     ) public {
         bytes32 complaintID = keccak256(abi.encodePacked(_Email, _Phone, _Name, _Suspect_Name, _Place, _Reason, _EventTime, _ForOwn));
         complaints[complaintID] = Complaint(_Email, _Phone, _Name, _Suspect_Name, _Place, _Reason, block.timestamp, _EventTime, _ForOwn);
-        copComplaints[msg.sender].push(complaintID); // Add complaint ID to cop's list
+        copComplaints[msg.sender].push(complaintID);  
         emit ComplaintFiled(_Email, _Phone, _Name, _Suspect_Name, _Place, _Reason, block.timestamp, _EventTime, _ForOwn);
     }
     
@@ -72,15 +72,15 @@ contract ComplaintContract {
         emit ComplaintVerified(_complaintID, _isValid);
     }
 
-    uint constant REWARD_THRESHOLD = 5; // Threshold for rewarding user
+    uint constant REWARD_THRESHOLD = 5; 
     
-    mapping(address => uint) public userRewards; // Mapping to track user rewards
+    mapping(address => uint) public userRewards; 
     
     function claimReward() public {
         require(cops[msg.sender].copID != 0, "Only cops can claim rewards");
         
         uint validComplaintsCount = 0;
-        bytes32[] memory complaintIDs = copComplaints[msg.sender]; // Get list of complaints for the cop
+        bytes32[] memory complaintIDs = copComplaints[msg.sender]; 
         
         for(uint i = 0; i < complaintIDs.length; i++) {
             if(verifiedComplaints[complaintIDs[i]]) {
