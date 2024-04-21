@@ -1,0 +1,281 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "bytes",
+				"name": "Email",
+				"type": "bytes"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "Phone",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "bytes",
+				"name": "Name",
+				"type": "bytes"
+			},
+			{
+				"indexed": false,
+				"internalType": "bytes",
+				"name": "Suspect_Name",
+				"type": "bytes"
+			},
+			{
+				"indexed": false,
+				"internalType": "bytes",
+				"name": "Place",
+				"type": "bytes"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "Reason",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "currentTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "bytes",
+				"name": "EventTime",
+				"type": "bytes"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "ForOwn",
+				"type": "bool"
+			}
+		],
+		"name": "ComplaintFiled",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "complaintID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "isValid",
+				"type": "bool"
+			}
+		],
+		"name": "ComplaintVerified",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "reward",
+				"type": "uint256"
+			}
+		],
+		"name": "RewardClaimed",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "claimReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"name": "complaints",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "Email",
+				"type": "bytes"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Phone",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "Name",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "Suspect_Name",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "Place",
+				"type": "bytes"
+			},
+			{
+				"internalType": "string",
+				"name": "Reason",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "currentTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "EventTime",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bool",
+				"name": "ForOwn",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "copComplaints",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "cops",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "areaOfDuty",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "currentPosting",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "assignedToCase",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "copID",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "userRewards",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"name": "verifiedComplaints",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_complaintID",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bool",
+				"name": "_isValid",
+				"type": "bool"
+			}
+		],
+		"name": "verifyComplaint",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
